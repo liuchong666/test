@@ -11,9 +11,12 @@ pipeline {
                 echo '构建结束'
             }
         }
-        stage('Test') {
+        stage('start') {
             steps {
-                echo 'Testing..'
+                echo '启动..'
+                sh '''cd bin/Release/net6.0/linux-x64
+                    dotnet WebApplication1.dll'''
+                echo '启动结束'
             }
         }
         stage('Deploy') {
