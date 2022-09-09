@@ -14,7 +14,7 @@ pipeline {
         stage('start') {
             steps {
                 echo '启动..'
-                sh '''cd bin/Release/net6.0/linux-x64
+                sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
                     dotnet WebApplication1.dll'''
                 echo '启动结束'
             }
