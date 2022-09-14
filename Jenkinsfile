@@ -14,14 +14,14 @@ pipeline {
         stage('start') {
             steps {
                 echo '启动..'
-                 withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {                
-                          sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
+                sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
                             sudo cp -r * /home/liu/test
                             cd /home/liu/test/
+                    '''
+                 withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {                
+                          sh '''
                             nohup dotnet WebApplication1.dll --Urls=http://*:7000 &
-                            ps uax|grep WebApplication1.dll
-                            echo "###########################"
-                            ps uax|grep WebApplication1.dll
+                            
                         '''                  
                     }
                 echo '启动结束'
