@@ -14,7 +14,7 @@ pipeline {
         stage('start') {
             steps {
               withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {
-                    sh '''
+                       export BUILD_ID=dontKillMe
                        echo '启动..'
                       sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
                         sudo cp -r * /home/liu/test
@@ -25,7 +25,7 @@ pipeline {
                         ps uax|grep WebApplication1.dll
                     '''
                 echo '启动结束'
-                    '''
+                    
                 }
             }
         }
