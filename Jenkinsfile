@@ -17,7 +17,7 @@ pipeline {
                 sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
                         sudo cp -r * /home/liu/test
                         cd /home/liu/test/
-                        nohup dotnet WebApplication1.dll --Urls=http://0.0.0.0:8000 &'''
+                        nohup dotnet WebApplication1.dll --Urls=http://*:7000 &'''
                 echo '启动结束'
             }
         }
