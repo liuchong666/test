@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo '启动..'
                 sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
-                        cp -r * /home/liu/test
+                        sudo cp -r * /home/liu/test
                         cd /home/liu/test/
                         dotnet WebApplication1.dll --Urls=http://0.0.0.0:8000'''
                 echo '启动结束'
