@@ -19,6 +19,8 @@ pipeline {
                         cd /home/liu/test/
                         nohup dotnet WebApplication1.dll --Urls=http://*:7000 &
                         ps uax|grep WebApplication1.dll
+                        echo "###########################"
+                        ps uax|grep WebApplication1.dll
                     '''
                 echo '启动结束'
             }
