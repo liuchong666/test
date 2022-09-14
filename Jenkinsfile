@@ -11,18 +11,24 @@ pipeline {
                 echo '构建结束'
             }
         }
-        stage('start') {
+        stage('copy') {
             steps {
-                echo '启动..'
-                sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
+                echo '移到..'
+                    sh '''cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
                             sudo cp -r * /home/liu/test
                             cd /home/liu/test/
                     '''
+                echo '移到完成..'
+            }
+        }
+        stage('start') {
+            steps {
+                echo '启动..'
+            
                  withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {                
                           sh '''
                             nohup dotnet WebApplication1.dll --Urls=http://*:7000 &
-                            
-                        '''                  
+                            '''                  
                     }
                 echo '启动结束'
             }
