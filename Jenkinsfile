@@ -17,7 +17,7 @@ pipeline {
                  withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {                
                           sh '''
                             export BUILD_ID=dontKillMe
-                            cd /var/lib/jenkins/workspace/newpipeline/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
+                            cd /var/lib/jenkins/workspace/pipeline-1/WebApplication1/WebApplication1/bin/Release/net6.0/linux-x64/publish/
                             sudo cp -r * /home/liu/test
                             cd /home/liu/test/
                             nohup dotnet WebApplication1.dll --Urls=http://*:7000 &
